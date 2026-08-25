@@ -1,0 +1,7 @@
+tqdm
+pypdf
+openai
+rapidfuzz
+requests
+lxml
+

@@ -1,0 +1,3 @@
+# Track the dataset labels with Git LFS (GitHub warns above 50 MB; reground.json is ~49 MB).
+# Requires: git lfs install
+reground.json filter=lfs diff=lfs merge=lfs -text

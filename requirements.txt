@@ -1,3 +1,29 @@
-# This template is low-dependency. 
-# By default there is no requirements added here.
-# Add the requirements you need to this file.
+# ReGround — Python dependencies.
+
+# --- core (dataset build, stats, all runners) ---
+numpy
+tqdm
+rapidfuzz            # quote-overlap filtering + fuzzy section matching
+
+# --- text retrieval (sparse / dense / cross-encoder) ---
+torch
+sentence-transformers        # code uses encode_query / encode_document / similarity
+FlagEmbedding                # BGE-M3 + BGE-M3 reranker
+rank-bm25                    # BM25
+transformers
+
+# --- multimodal retrieval (figures / tables as images) ---
+open_clip_torch              # OpenCLIP, EVA02-CLIP
+colpali-engine               # ColPali, ColQwen
+Pillow                       # image loading
+
+# --- LLM retrieval (open models via a local OpenAI-compatible server, + GPT-5.1 API) ---
+openai
+tiktoken
+
+# --- PDF preprocessing (ONLY needed to regenerate sdr/images from raw PDFs;
+#     the released nlpeer/ already ships paper.sdr.json + images) ---
+pypdf                        # line / section / caption extraction
+lxml
+requests                     # GROBID client
+# External (not pip): GROBID server, PDFFigures 2.0
