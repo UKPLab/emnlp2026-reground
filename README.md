@@ -7,6 +7,11 @@ and the code to reproduce it and to run every retrieval task in the paper.
 
 ![Overview of the SciCoQA dataset creation process](figs/grounding.svg)
 
+Contact
+person: [Serwar Basch](https://www.informatik.tu-darmstadt.de/ukp/ukp_home/staff_ukp/index.en.jsp)
+
+[UKP Lab](https://www.ukp.tu-darmstadt.de/) | [TU Darmstadt](https://www.tu-darmstadt.de/)
+
 ## Contents
 
 ```
@@ -121,3 +126,8 @@ python analyze_evidence_statistics.py     # Table 2 (papers, queries, evidence, 
 python analyze_reference_coverage.py
 python similarity_review_rebuttal_stats.py
 ```
+
+## Disclaimer
+
+> This repository contains experimental software and is published for the sole purpose of giving additional background
+> details on the respective publication. 
