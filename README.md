@@ -1,9 +1,11 @@
-# ReGround
+# ReGround: Grounding Reviewer Comments in Multimodal Evidence
 
 Reviewer comment grounding as retrieval. ReGround links reviewer comments to localized,
 multimodal evidence (paragraphs, sections, figures, tables) in the original anonymous
 submission, mined automatically from author rebuttals. This repository contains the dataset
 and the code to reproduce it and to run every retrieval task in the paper.
+
+![Overview of the SciCoQA dataset creation process](figs/grounding.svg)
 
 ## Contents
 
