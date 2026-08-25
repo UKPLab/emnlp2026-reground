@@ -36,8 +36,8 @@ TOKEN_USAGE = {
 # Optional (only if you use a proxy / gateway):
 #   export OPENAI_BASE_URL="https://api.openai.com/v1"
 #
-OPENAI_API_KEY = ""
-OPENAI_BASE_URL = ""
+OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY", "")
+OPENAI_BASE_URL = os.environ.get("OPENAI_BASE_URL", "")
 OPENAI_MODEL_NAME = os.environ.get("OPENAI_MODEL_NAME", "gpt-5.1")
 
 MAX_RETRIES = 5
