@@ -12,7 +12,7 @@ from tqdm import tqdm
 # =========================================================
 VLLM_BASE_URL = os.environ.get("REGROUND_LLM_BASE_URL", "http://localhost:6531/v1")
 VLLM_API_KEY = os.environ.get("REGROUND_LLM_API_KEY", "EMPTY")
-VLLM_MODEL_NAME = os.environ.get("REGROUND_FILTER_MODEL", "gpt-oss-20b")
+VLLM_MODEL_NAME = os.environ.get("REGROUND_FILTER_MODEL", "gpt-oss-120b")
 
 client = OpenAI(
     base_url=VLLM_BASE_URL,
@@ -219,6 +219,23 @@ def save_json(path, obj):
         json.dump(obj, f, indent=2, ensure_ascii=False)
 
 
+def drop_filtered(output):
+    """Keep only pairs the LLM marked as grounded in the submission, without their labels."""
+    kept = {}
+    for pid, comments in output.items():
+        for cid, info in comments.items():
+            pairs = [
+                {"rebuttal_sentence": a["rebuttal_sentence"], "review_spans": a["review_spans"]}
+                for a in info["aligned"]
+                if not a["labels"]["filter_out"]
+            ]
+            if pairs:
+                kept.setdefault(pid, {})[cid] = {
+                    "review": info["review"], "rebuttal": info["rebuttal"], "aligned": pairs,
+                }
+    return kept
+
+
 # =========================================================
 # MAIN PIPELINE
 # =========================================================
@@ -302,7 +319,8 @@ def main(results_dir="../results", batch_size=8):
         if (i // batch_size) % SAVE_EVERY == 0:
             save_json(partial_path, output)
 
-    save_json(os.path.join(results_dir, "5_grounded_references.json"), output)
+    save_json(partial_path, output)  # all pairs with their LLM labels
+    save_json(os.path.join(results_dir, "5_grounded_references.json"), drop_filtered(output))
 
     if failures:
         save_json(os.path.join(results_dir, "5_grounded_references_failures.json"), failures)

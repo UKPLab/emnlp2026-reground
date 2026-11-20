@@ -12,13 +12,13 @@ Prerequisites
   the original NLPeer release. paper.sdr.json, extracted images, paragraphs.json and output_json
   are NOT needed to build reground.json — they are produced by the PDF-processing scripts
   (parse_papers.py, run_grob.py, cleanpdf.py + PDFFigures 2.0) and are only used downstream for
-  evidence resolution (build_evidence.py) and the retrieval experiments. If you start from a raw
+  the retrieval experiments. If you start from a raw
   NLPeer (no sdr/images) run that PDF-processing step first for the downstream tasks.
 - LLM stages (review_alignment, llm_filter) need an OpenAI-compatible endpoint. Configure via env:
     REGROUND_LLM_BASE_URL   (default http://localhost:6531/v1)
-    REGROUND_LLM_API_KEY    (default "")
+    REGROUND_LLM_API_KEY    (default "EMPTY")
     REGROUND_LLM_MODEL      alignment model (default gpt-oss-120b)
-    REGROUND_FILTER_MODEL   filter model    (default gpt-oss-20b)
+    REGROUND_FILTER_MODEL   filter model    (default gpt-oss-120b)
 
 Use --stop-after quotes to run only the non-LLM prefix (no endpoint required).
 """
