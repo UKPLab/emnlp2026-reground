@@ -5,7 +5,7 @@ multimodal evidence (paragraphs, sections, figures, tables) in the original anon
 submission, mined automatically from author rebuttals. This repository contains the dataset
 and the code to reproduce it and to run every retrieval task in the paper.
 
-![Overview of the SciCoQA dataset creation process](figs/grounding.svg)
+![Overview of ReGround: reviewer comments grounded in the submission via author rebuttals](figs/grounding.svg)
 
 Contact
 person: [Serwar Basch](https://www.informatik.tu-darmstadt.de/ukp/ukp_home/staff_ukp/index.en.jsp)
@@ -20,8 +20,8 @@ nlpeer/                  # per paper: v1/{reviews.json, comments.json, meta.json
                          #             paper.sdr.json, images/, paragraphs.json}
 scripts/                 # dataset construction, retrieval runners, evaluation, stats
 requirements.txt
-SCHEMA.md                # dataset schema (also the derived dataset.jsonl view)
-CODEBASE_MAP.md          # what each script is and how the pieces fit
+SCHEMA.md                # data format: reground.json, nlpeer/ files, retrieval outputs
+CODEBASE_MAP.md          # what each script does and how the pieces fit
 ```
 
 `nlpeer/` is NLPeer v2 (EMNLP 24/25, COLING 25, NAACL 25, ACL 25) augmented with the parsed
@@ -123,7 +123,6 @@ python evaluate_oracle_section_container.py
 
 ```bash
 python analyze_evidence_statistics.py     # Table 2 (papers, queries, evidence, combinations)
-python analyze_reference_coverage.py
 python similarity_review_rebuttal_stats.py
 ```
 

@@ -2,8 +2,6 @@
 nlpeer/
 
 # === Internal docs (not for the public repo) ===
-SCHEMA.md
-CODEBASE_MAP.md
 MANIFEST.md
 
 # === Archived / paper source ===
