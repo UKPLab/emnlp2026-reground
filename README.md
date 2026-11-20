@@ -1,4 +1,4 @@
-# ReGround: Grounding Reviewer Comments in Multimodal Evidence
+# [ReGround: Grounding Reviewer Comments in Multimodal Evidence](https://aclanthology.org/2026.emnlp-main.54/) (EMNLP 2026)
 
 Reviewer comment grounding as retrieval. ReGround links reviewer comments to localized,
 multimodal evidence (paragraphs, sections, figures, tables) in the original anonymous
