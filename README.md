@@ -27,7 +27,23 @@ CODEBASE_MAP.md          # what each script does and how the pieces fit
 `nlpeer/` is NLPeer v2 (EMNLP 24/25, COLING 25, NAACL 25, ACL 25) augmented with the parsed
 `paper.sdr.json`, extracted figure/table `images/`, and GROBID `paragraphs.json`. The original
 NLPeer release does not include those; we produce them in the preprocessing step below and ship
-them here so the retrieval tasks run without re-parsing PDFs.
+them so the retrieval tasks run without re-parsing PDFs.
+
+## Data
+
+`reground.json` is included in this repository. `nlpeer/` is too large for GitHub and is
+available on TUdatalib:
+
+**https://tudatalib.ulb.tu-darmstadt.de/handle/tudatalib/5674** (`nlpeer.zip`, 44 GB)
+
+Download it and unzip it in the repository root:
+
+```bash
+unzip nlpeer.zip   # creates nlpeer/<venue>/<paper_id>/v1/...
+```
+
+The data is released under [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/),
+following NLPeer. The code is under the Apache 2.0 license.
 
 ## Setup
 
@@ -124,6 +140,25 @@ python evaluate_oracle_section_container.py
 ```bash
 python analyze_evidence_statistics.py     # Table 2 (papers, queries, evidence, combinations)
 python similarity_review_rebuttal_stats.py
+```
+
+## Citation
+
+If you use ReGround in your research, please cite:
+
+```bibtex
+@inproceedings{basch-etal-2026-reground,
+    title = "{R}e{G}round: Grounding Reviewer Comments in Multimodal Evidence",
+    author = "Basch, Serwar  and
+      Qu, Lizhen  and
+      Gurevych, Iryna",
+    booktitle = "Proceedings of the 2026 Conference on Empirical Methods in Natural Language Processing",
+    month = oct,
+    year = "2026",
+    address = "Budapest, Hungary",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2026.emnlp-main.54/",
+}
 ```
 
 ## Disclaimer
